@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+        <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+        <script src="Rotation.js"></script>
+        <script src="Coin.js"></script>
+        <script src="Fish.js"></script>
+        <script src="Game.js"></script>
+        
+    </head>
+    <body>
+        <a-scene background="color:cyan">
+
+            <a-entity id="look" look-controls camera position="0 2 8"></a-entity>
+
+            <a-assets>
+            <a-assets-item id="diver" src="./assets/diver/scene.gltf"></a-assets-item>
+            <a-assets-item id="island" src="./assets/island/scene.gltf"></a-assets-item>
+            </a-assets>
+
+            <a-entity id="sea">
+            <a-sphere position="0 -100 -10" color="blue" scale="100 100 100" animation="property: position; to: 0 -100 20;easing:linear; loop: true; dur: 150000"></a-sphere>
+            </a-entity>
+            
+            <a-entity position="2 0 5" gltf-model="#diver" scale="0.01 0.01 0.01" rotation="0 180 0" diver-rotation dynamic-body="mass:0" game-play></a-entity>
+            <a-entity position="-2 0 -5" gltf-model="#island" scale="0.03 0.03 0.03" island-rotation coins animation="property: position; to: 0 0 20;easing:linear; loop: true; dur: 150000"></a-entity>
+        </a-scene>
+    </body>
+</html>
